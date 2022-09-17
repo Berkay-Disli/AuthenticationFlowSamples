@@ -11,6 +11,12 @@
 		23DBC13328D66C3900FE8297 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBC13228D66C3900FE8297 /* ContentView.swift */; };
 		23DBC13528D66C3A00FE8297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23DBC13428D66C3A00FE8297 /* Assets.xcassets */; };
 		23DBC13928D66C3A00FE8297 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23DBC13828D66C3A00FE8297 /* Preview Assets.xcassets */; };
+		23DBC14528D66D6900FE8297 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBC14428D66D6900FE8297 /* Onboarding.swift */; };
+		23DBC14728D6725300FE8297 /* BigButtonFilled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBC14628D6725300FE8297 /* BigButtonFilled.swift */; };
+		23DBC14928D672AB00FE8297 /* BigButtonStroked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBC14828D672AB00FE8297 /* BigButtonStroked.swift */; };
+		23DBC14B28D6752D00FE8297 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBC14A28D6752D00FE8297 /* SignUp.swift */; };
+		23DBC14D28D6759E00FE8297 /* IconButtonStroked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBC14C28D6759E00FE8297 /* IconButtonStroked.swift */; };
+		23DBC14F28D6766A00FE8297 /* SignUpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBC14E28D6766A00FE8297 /* SignUpMethods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +26,12 @@
 		23DBC13428D66C3A00FE8297 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23DBC13628D66C3A00FE8297 /* AuthenticationFlowWithPicture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuthenticationFlowWithPicture.entitlements; sourceTree = "<group>"; };
 		23DBC13828D66C3A00FE8297 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		23DBC14428D66D6900FE8297 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		23DBC14628D6725300FE8297 /* BigButtonFilled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonFilled.swift; sourceTree = "<group>"; };
+		23DBC14828D672AB00FE8297 /* BigButtonStroked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonStroked.swift; sourceTree = "<group>"; };
+		23DBC14A28D6752D00FE8297 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		23DBC14C28D6759E00FE8297 /* IconButtonStroked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonStroked.swift; sourceTree = "<group>"; };
+		23DBC14E28D6766A00FE8297 /* SignUpMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMethods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +64,11 @@
 		23DBC12F28D66C3900FE8297 /* AuthenticationFlowWithPicture */ = {
 			isa = PBXGroup;
 			children = (
+				23DBC14328D66C7900FE8297 /* Service */,
+				23DBC14228D66C7600FE8297 /* Components */,
+				23DBC14128D66C7500FE8297 /* Model */,
+				23DBC14028D66C7200FE8297 /* ViewModel */,
+				23DBC13F28D66C6F00FE8297 /* View */,
 				23DBC13028D66C3900FE8297 /* AuthenticationFlowWithPictureApp.swift */,
 				23DBC13228D66C3900FE8297 /* ContentView.swift */,
 				23DBC13428D66C3A00FE8297 /* Assets.xcassets */,
@@ -67,6 +84,47 @@
 				23DBC13828D66C3A00FE8297 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		23DBC13F28D66C6F00FE8297 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				23DBC14428D66D6900FE8297 /* Onboarding.swift */,
+				23DBC14A28D6752D00FE8297 /* SignUp.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		23DBC14028D66C7200FE8297 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		23DBC14128D66C7500FE8297 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23DBC14E28D6766A00FE8297 /* SignUpMethods.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		23DBC14228D66C7600FE8297 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				23DBC14628D6725300FE8297 /* BigButtonFilled.swift */,
+				23DBC14828D672AB00FE8297 /* BigButtonStroked.swift */,
+				23DBC14C28D6759E00FE8297 /* IconButtonStroked.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		23DBC14328D66C7900FE8297 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +197,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23DBC14F28D6766A00FE8297 /* SignUpMethods.swift in Sources */,
+				23DBC14528D66D6900FE8297 /* Onboarding.swift in Sources */,
+				23DBC14B28D6752D00FE8297 /* SignUp.swift in Sources */,
 				23DBC13328D66C3900FE8297 /* ContentView.swift in Sources */,
+				23DBC14928D672AB00FE8297 /* BigButtonStroked.swift in Sources */,
+				23DBC14728D6725300FE8297 /* BigButtonFilled.swift in Sources */,
 				23DBC13128D66C3900FE8297 /* AuthenticationFlowWithPictureApp.swift in Sources */,
+				23DBC14D28D6759E00FE8297 /* IconButtonStroked.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
