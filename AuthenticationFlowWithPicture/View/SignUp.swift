@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignUp: View {
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var authVM: AuthenticationViewModel
     
     var body: some View {
         ZStack {
@@ -25,7 +26,7 @@ struct SignUp: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
                 }
-
+                
                 
                 Text("Sign up with one of the following")
                     .foregroundColor(Color("pri"))
@@ -36,8 +37,26 @@ struct SignUp: View {
                     .padding(.bottom, 25)
                 
                 ForEach(SignUpMethods.allCases, id:\.self) { item in
-                    IconButtonStroked(text: item.title, fgColor: Color("pri"), bgColor: Color("pri"), img: item.rawValue)
-                        .padding(.bottom, 2)
+                    Button {
+                        switch item {
+                        case .apple:
+                            print("\(item.rawValue) sign in method selected")
+                        case .facebook:
+                            print("\(item.rawValue) sign in method selected")
+                        case .twitter:
+                            print("\(item.rawValue) sign in method selected")
+                        case .google:
+                            authVM.signInWithCredential()
+                        case .email:
+                            print("\(item.rawValue) sign in method selected")
+                        }
+                    } label: {
+                        IconButtonStroked(text: item.title, fgColor: Color("pri"), bgColor: Color("pri"), img: item.rawValue)
+                            .padding(.bottom, 2)
+                    }
+                    .alert(authVM.alertMessage, isPresented: $authVM.showAlert) {}
+                    
+                    
                 }
                 
                 Spacer()
@@ -59,5 +78,6 @@ struct SignUp: View {
 struct SignUp_Previews: PreviewProvider {
     static var previews: some View {
         SignUp()
+            .environmentObject(AuthenticationViewModel())
     }
 }
