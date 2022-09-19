@@ -11,55 +11,94 @@ struct Home: View {
     @EnvironmentObject var authVM: AuthenticationViewModel
     @StateObject var dataVM = DataViewModel()
     @State private var showSignOutAlert = false
+    @State private var searchText = ""
+    @State private var isShowingPopover = false
     
     var body: some View {
         NavigationView {
             ZStack {
                 Color("pri").ignoresSafeArea()
                 
-                // MARK: Main Stack
-                VStack {
-                    // categories
-                    VStack(spacing: 0) {
-                        HStack {
-                            ForEach(Categories.allCases, id:\.self) { category in
-                                VStack {
-                                    Text(category.title)
-                                        .foregroundColor(dataVM.selectedCategory == category ? .black:.gray)
-                                        .fontWeight(dataVM.selectedCategory == category ? .medium:.regular)
-                                    
-                                    Capsule().fill(dataVM.selectedCategory == category ? Color("brown"):.clear)
-                                        .frame(height: 3)
-                                }
-                                .onTapGesture {
-                                    withAnimation(.easeInOut) {
-                                        dataVM.selectCategory(category: category)
+                // MARK: Main Scroll
+                ScrollView(showsIndicators: false) {
+                    LazyVStack {
+                        // categories
+                        VStack(spacing: 0) {
+                            HStack {
+                                ForEach(Categories.allCases, id:\.self) { category in
+                                    VStack {
+                                        Text(category.title)
+                                            .foregroundColor(dataVM.selectedCategory == category ? .black:.gray)
+                                            .fontWeight(dataVM.selectedCategory == category ? .medium:.regular)
+                                        
+                                        Capsule().fill(dataVM.selectedCategory == category ? Color("brown"):.clear)
+                                            .frame(height: 3)
+                                    }
+                                    .onTapGesture {
+                                        withAnimation(.easeInOut) {
+                                            dataVM.selectCategory(category: category)
+                                        }
                                     }
                                 }
                             }
+                            
+                            Divider()
                         }
+                        .padding(.bottom)
                         
-                        Divider()
-                    }
-                    .padding(.vertical)
-                    
-                    // Image slideshow
-                    TabView(selection: $dataVM.imageSelection) { 
-                        ForEach(SlideshowImages.allCases, id:\.self) { img in
-                            Image(img.rawValue)
-                                .resizable()
-                                .scaledToFill()
+                        // Image slideshow
+                        TabView(selection: $dataVM.imageSelection) {
+                            ForEach(SlideshowImages.allCases, id:\.self) { img in
+                                Image(img.rawValue)
+                                    .resizable()
+                                    .scaledToFill()
+                            }
                         }
+                        .frame(height: 210)
+                        .padding(.horizontal)
+                        .tabViewStyle(.page)
+                        //.indexViewStyle(.page(backgroundDisplayMode: .always))
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHStack(spacing: 0) {
+                                ForEach(ScrollableNews.allCases, id:\.self) { item in
+                                    VStack(alignment: .leading, spacing: 16) {
+                                        Image(systemName: "arrow.up.right")
+                                            .frame(maxWidth: .infinity, alignment: .trailing)
+                                            
+                                            
+                                        
+                                        Text(item.title)
+                                            .font(.title2)
+                                            .fontWeight(.medium)
+                                            .foregroundColor(Color("bg"))
+                                        
+                                        HStack {
+                                            Text(item.publisher)
+                                            Spacer()
+                                            Text(item.country)
+                                        }
+                                        .font(.footnote)
+                                    }
+                                    .padding()
+                                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(.gray.opacity(0.3)))
+                                    .padding()
+                                    .frame(height: 220)
+                                    .frame(maxWidth: UIScreen.main.bounds.width)
+                                }
+                            }
+                        }
+                        .frame(height: 220)
+                        
+                        
+                        
+                        Spacer()
                     }
-                    .frame(height: 210)
-                    .padding(.horizontal)
-                    .tabViewStyle(.page)
-                    //.indexViewStyle(.page(backgroundDisplayMode: .always))
-                    
-                    
-                    Spacer()
                 }
+                .searchable(text: $searchText, prompt: "Search")
             }
+            .navigationTitle("Home")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -74,11 +113,11 @@ struct Home: View {
                         } label: {
                             Text("Sign Out")
                         }
-
+                        
                     } message: {
                         Text("Do you want to sign out?")
                     }
-
+                    
                 }
                 
                 ToolbarItem(placement: .navigationBarLeading) {
