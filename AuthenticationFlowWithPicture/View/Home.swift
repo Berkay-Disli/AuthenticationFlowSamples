@@ -9,16 +9,55 @@ import SwiftUI
 
 struct Home: View {
     @EnvironmentObject var authVM: AuthenticationViewModel
+    @StateObject var dataVM = DataViewModel()
     @State private var showSignOutAlert = false
     
     var body: some View {
         NavigationView {
             ZStack {
                 Color("pri").ignoresSafeArea()
+                
+                // MARK: Main Stack
                 VStack {
-                    Text("Home")
-                        .font(.largeTitle)
-                        .foregroundColor(Color("bg"))
+                    // categories
+                    VStack(spacing: 0) {
+                        HStack {
+                            ForEach(Categories.allCases, id:\.self) { category in
+                                VStack {
+                                    Text(category.title)
+                                        .foregroundColor(dataVM.selectedCategory == category ? .black:.gray)
+                                        .fontWeight(dataVM.selectedCategory == category ? .medium:.regular)
+                                    
+                                    Capsule().fill(dataVM.selectedCategory == category ? Color("brown"):.clear)
+                                        .frame(height: 3)
+                                }
+                                .onTapGesture {
+                                    withAnimation(.easeInOut) {
+                                        dataVM.selectCategory(category: category)
+                                    }
+                                }
+                            }
+                        }
+                        
+                        Divider()
+                    }
+                    .padding(.vertical)
+                    
+                    // Image slideshow
+                    TabView(selection: $dataVM.imageSelection) { 
+                        ForEach(SlideshowImages.allCases, id:\.self) { img in
+                            Image(img.rawValue)
+                                .resizable()
+                                .scaledToFill()
+                        }
+                    }
+                    .frame(height: 210)
+                    .padding(.horizontal)
+                    .tabViewStyle(.page)
+                    //.indexViewStyle(.page(backgroundDisplayMode: .always))
+                    
+                    
+                    Spacer()
                 }
             }
             .toolbar {
@@ -26,7 +65,7 @@ struct Home: View {
                     Button {
                         showSignOutAlert.toggle()
                     } label: {
-                        Text("Sign Out")
+                        Image(systemName: "power")
                             .foregroundColor(Color("bg"))
                     }
                     .alert("Signing Out", isPresented: $showSignOutAlert) {
@@ -40,6 +79,10 @@ struct Home: View {
                         Text("Do you want to sign out?")
                     }
 
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Image(systemName: "bell")
                 }
             }
         }

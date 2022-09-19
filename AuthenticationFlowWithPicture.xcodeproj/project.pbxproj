@@ -15,6 +15,8 @@
 		2320302A28D777BB006A47A0 /* ApplicationUtiliy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2320302928D777BB006A47A0 /* ApplicationUtiliy.swift */; };
 		2320302C28D778F3006A47A0 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2320302B28D778F3006A47A0 /* Home.swift */; };
 		236D9FE328D75A1600ECD8A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 236D9FE228D75A1600ECD8A0 /* GoogleService-Info.plist */; };
+		23B5CC3128D88A09008F3360 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5CC3028D88A09008F3360 /* Categories.swift */; };
+		23B5CC3328D88BE7008F3360 /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B5CC3228D88BE7008F3360 /* DataViewModel.swift */; };
 		23DBC13128D66C3900FE8297 /* AuthenticationFlowWithPictureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBC13028D66C3900FE8297 /* AuthenticationFlowWithPictureApp.swift */; };
 		23DBC13328D66C3900FE8297 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBC13228D66C3900FE8297 /* ContentView.swift */; };
 		23DBC13528D66C3A00FE8297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23DBC13428D66C3A00FE8297 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		2320302928D777BB006A47A0 /* ApplicationUtiliy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUtiliy.swift; sourceTree = "<group>"; };
 		2320302B28D778F3006A47A0 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		236D9FE228D75A1600ECD8A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		23B5CC3028D88A09008F3360 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		23B5CC3228D88BE7008F3360 /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
 		23DBC12D28D66C3900FE8297 /* AuthenticationFlowWithPicture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthenticationFlowWithPicture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23DBC13028D66C3900FE8297 /* AuthenticationFlowWithPictureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFlowWithPictureApp.swift; sourceTree = "<group>"; };
 		23DBC13228D66C3900FE8297 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				2320302728D77727006A47A0 /* AuthenticationViewModel.swift */,
+				23B5CC3228D88BE7008F3360 /* DataViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				23DBC14E28D6766A00FE8297 /* SignUpMethods.swift */,
+				23B5CC3028D88A09008F3360 /* Categories.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,12 +241,14 @@
 				2320302A28D777BB006A47A0 /* ApplicationUtiliy.swift in Sources */,
 				2320302C28D778F3006A47A0 /* Home.swift in Sources */,
 				23DBC14B28D6752D00FE8297 /* SignUp.swift in Sources */,
+				23B5CC3128D88A09008F3360 /* Categories.swift in Sources */,
 				23DBC13328D66C3900FE8297 /* ContentView.swift in Sources */,
 				23DBC14928D672AB00FE8297 /* BigButtonStroked.swift in Sources */,
 				23DBC14728D6725300FE8297 /* BigButtonFilled.swift in Sources */,
 				2320302828D77727006A47A0 /* AuthenticationViewModel.swift in Sources */,
 				23DBC13128D66C3900FE8297 /* AuthenticationFlowWithPictureApp.swift in Sources */,
 				23DBC14D28D6759E00FE8297 /* IconButtonStroked.swift in Sources */,
+				23B5CC3328D88BE7008F3360 /* DataViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
