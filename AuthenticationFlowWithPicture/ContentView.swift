@@ -14,7 +14,7 @@ struct ContentView: View {
             Onboarding()
                 .transition(AnyTransition.opacity.animation(.easeInOut))
         } else {
-            Home()
+            TabManager()
                 .transition(AnyTransition.opacity.animation(.easeInOut))
         }
     }
@@ -24,5 +24,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(AuthenticationViewModel())
+            .environmentObject(NavigationViewModel())
     }
 }

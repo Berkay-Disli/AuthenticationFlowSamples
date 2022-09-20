@@ -17,6 +17,7 @@ struct AuthenticationFlowWithPictureApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(AuthenticationViewModel())
+                .environmentObject(NavigationViewModel())
         }
     }
 }

@@ -10,6 +10,10 @@ import Foundation
 class DataViewModel: ObservableObject {
     @Published var selectedCategory: Categories = .top
     @Published var imageSelection: SlideshowImages = .slide1
+    @Published var newsSelection: ScrollableNews = .new1
+    
+    @Published var altImageSelection: SlideshowImages = .slide2
+    @Published var altNewsSelection: ScrollableNews = .new2
 
     
     func selectCategory(category: Categories) {

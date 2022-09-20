@@ -46,21 +46,22 @@ struct Home: View {
                         }
                         .padding(.bottom)
                         
-                        // Image slideshow
-                        TabView(selection: $dataVM.imageSelection) {
-                            ForEach(SlideshowImages.allCases, id:\.self) { img in
-                                Image(img.rawValue)
-                                    .resizable()
-                                    .scaledToFill()
+                        VStack {
+                            // Image slideshow
+                            TabView(selection: $dataVM.imageSelection) {
+                                ForEach(SlideshowImages.allCases, id:\.self) { img in
+                                    Image(img.rawValue)
+                                        .resizable()
+                                        .scaledToFill()
+                                }
                             }
-                        }
-                        .frame(height: 210)
-                        .padding(.horizontal)
-                        .tabViewStyle(.page)
-                        //.indexViewStyle(.page(backgroundDisplayMode: .always))
-                        
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack(spacing: 0) {
+                            .frame(height: 210)
+                            .padding(.horizontal)
+                            .padding(.bottom, -20)
+                            .tabViewStyle(.page)
+                            //.indexViewStyle(.page(backgroundDisplayMode: .always))
+                            
+                            TabView(selection: $dataVM.newsSelection) {
                                 ForEach(ScrollableNews.allCases, id:\.self) { item in
                                     VStack(alignment: .leading, spacing: 16) {
                                         Image(systemName: "arrow.up.right")
@@ -87,8 +88,66 @@ struct Home: View {
                                     .frame(maxWidth: UIScreen.main.bounds.width)
                                 }
                             }
+                            .frame(height: 220)
+                            .tabViewStyle(.page)
+                            .indexViewStyle(.page(backgroundDisplayMode: .always))
+                            
                         }
-                        .frame(height: 220)
+                        
+                        Rectangle().fill(Color("sec"))
+                            .padding(.bottom, 12)
+                            .padding(.top, -4)
+                        
+                        VStack {
+                            // Image slideshow
+                            TabView(selection: $dataVM.altImageSelection) {
+                                ForEach(SlideshowImages.allCases, id:\.self) { img in
+                                    Image(img.rawValue)
+                                        .resizable()
+                                        .scaledToFill()
+                                }
+                            }
+                            .frame(height: 210)
+                            .padding(.horizontal)
+                            .padding(.bottom, -20)
+                            .tabViewStyle(.page)
+                            //.indexViewStyle(.page(backgroundDisplayMode: .always))
+                            
+                            TabView(selection: $dataVM.altNewsSelection) {
+                                ForEach(ScrollableNews.allCases, id:\.self) { item in
+                                    VStack(alignment: .leading, spacing: 16) {
+                                        Image(systemName: "arrow.up.right")
+                                            .frame(maxWidth: .infinity, alignment: .trailing)
+                                            
+                                            
+                                        
+                                        Text(item.title)
+                                            .font(.title2)
+                                            .fontWeight(.medium)
+                                            .foregroundColor(Color("bg"))
+                                        
+                                        HStack {
+                                            Text(item.publisher)
+                                            Spacer()
+                                            Text(item.country)
+                                        }
+                                        .font(.footnote)
+                                    }
+                                    .padding()
+                                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(.gray.opacity(0.3)))
+                                    .padding()
+                                    .frame(height: 220)
+                                    .frame(maxWidth: UIScreen.main.bounds.width)
+                                }
+                            }
+                            .frame(height: 220)
+                            .tabViewStyle(.page)
+                            .indexViewStyle(.page(backgroundDisplayMode: .always))
+                            
+                        }
+                        
+                        
+
                         
                         
                         
